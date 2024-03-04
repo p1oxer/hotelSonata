@@ -25,7 +25,7 @@ export function ContactsPage() {
                                 </a>
                             </li>
                             <li className="content-contacts__item">
-                                <p className="content-contacts__name"></p>
+                                <p className="content-contacts__name">Почта</p>
                                 <a
                                     href="mailto:pabonna@mail.ru"
                                     className="content-contacts__link"

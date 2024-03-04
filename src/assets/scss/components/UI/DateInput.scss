@@ -1,13 +1,17 @@
 .dateInput {
     padding: 10px;
     outline: none;
+    font-size: rem(16);
 }
 
 .date-input-container {
+    z-index: 10;
+
     label {
         display: block;
         color: #c7c7c7;
         margin-bottom: rem(10);
+        font-size: rem(14);
     }
 
 }
