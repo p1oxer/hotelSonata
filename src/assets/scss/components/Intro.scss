@@ -1,0 +1,24 @@
+.intro {
+    position: relative;
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+    }
+
+    // .intro__title
+    &__title {
+        font-size: rem(124);
+        font-family: "Ojuju";
+    }
+
+    // .intro__subtitle
+    &__subtitle {
+        font-family: "Montserrat";
+        font-size: rem(25);
+    }
+}

@@ -1,0 +1,21 @@
+//====================================================================================================
+.footer {
+    background-color: #000;
+
+    // .footer__body
+    &__body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 0;
+        font-size: rem(20);
+    }
+
+    // .footer__rights
+    &__rights {}
+
+    // .footer__adress
+    &__adress {}
+}
+
+//====================================================================================================

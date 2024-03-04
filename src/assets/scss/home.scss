@@ -1,0 +1,15 @@
+.intro {
+    background-image: url('../img/header/bg.jpg');
+    background-size: cover;
+    width: 100%;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.main-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
