@@ -11,7 +11,7 @@ export default function HeaderNav() {
                 <HeaderNavItem to={"/contacts"}>Контакты</HeaderNavItem>
                 <HeaderNavItem to={"/rooms"}>Номера</HeaderNavItem>
                 <HeaderNavItem to={""}>Виртуальная экскурсия</HeaderNavItem>
-                <HeaderNavItem to={"/auth"}>Вход</HeaderNavItem>
+                <HeaderNavItem to={"/auth/login"}>Вход</HeaderNavItem>
             </ul>
         </nav>
     );
