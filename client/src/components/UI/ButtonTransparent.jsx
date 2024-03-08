@@ -1,8 +1,12 @@
 import React from "react";
 
-export function ButtonTransparent({children, type}) {
+export function ButtonTransparent({ children, type, onClick }) {
     return (
-        <button type={type ?? "button"} className="button button-transparent">
+        <button
+            onClick={onClick}
+            type={type ?? "button"}
+            className="button button-transparent"
+        >
             {children}
         </button>
     );

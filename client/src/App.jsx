@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./assets/scss/style.scss";
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
@@ -7,8 +7,18 @@ import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { Rooms } from "./pages/Rooms";
 import { MainPage } from "./pages/MainPage";
+import { Context } from "./main";
+import { observer } from "mobx-react-lite";
+import { AccountPage } from "./pages/AccountPage";
 
 function App() {
+    const { store } = useContext(Context);
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            store.checkAuth();
+        }
+    }, []);
+    console.log(store.user.fullName);
     return (
         <Routes>
             <Route path="/" element={<Layout />}>
@@ -16,10 +26,11 @@ function App() {
                 <Route path="/auth/login" element={<LoginPage />} />
                 <Route path="/auth/register" element={<RegisterPage />} />
                 <Route path="/rooms" element={<Rooms />} />
+                <Route path="/me" element={<AccountPage />} />
                 <Route path="/" element={<MainPage />} />
             </Route>
         </Routes>
     );
 }
 
-export default App;
+export default observer(App);

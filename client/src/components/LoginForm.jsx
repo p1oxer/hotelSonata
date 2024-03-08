@@ -1,22 +1,32 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { ButtonTransparent } from "./UI/ButtonTransparent";
 import { Link } from "react-router-dom";
-export default function LoginForm() {
+import { Context } from "../main";
+import { observer } from "mobx-react-lite";
+function LoginForm() {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const { store } = useContext(Context);
+
     return (
         <form action="" className="auth-form">
             <div className="auth-form__box">
-                <label htmlFor="phone">Номер телефона</label>
+                <label htmlFor="email">Почта</label>
                 <input
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                     required
-                    type="tel"
+                    type="email"
                     name=""
-                    id="phone"
-                    placeholder="Введите номер телефона"
+                    id="email"
+                    placeholder="Введите почту"
                 />
             </div>
             <div className="auth-form__box">
                 <label htmlFor="password">Пароль</label>
                 <input
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
                     required
                     type="password"
                     name=""
@@ -25,7 +35,13 @@ export default function LoginForm() {
                 />
             </div>
             <div className="auth-form__bottom">
-                <ButtonTransparent type={"submit"} className="auth-form__button">
+                <ButtonTransparent
+                    onClick={() => {
+                        store.login(email, password);
+                    }}
+                    type={"button"}
+                    className="auth-form__button"
+                >
                     Войти
                 </ButtonTransparent>
                 <Link className="auth-form__link" to="/auth/register">
@@ -35,3 +51,4 @@ export default function LoginForm() {
         </form>
     );
 }
+export default observer(LoginForm);

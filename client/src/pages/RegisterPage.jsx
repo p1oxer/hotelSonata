@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../main";
 
-import { RegisterForm } from "../components/RegisterForm";
+import RegisterForm from "../components/RegisterForm";
 export function RegisterPage() {
+    const { store } = useContext(Context);
+    if (store.isAuth) {
+        location.assign("/me");
+    }
     return (
         <section className="auth page">
             <div className="auth__container">
