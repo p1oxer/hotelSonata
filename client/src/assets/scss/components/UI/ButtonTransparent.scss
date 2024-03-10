@@ -6,9 +6,16 @@
         transition: all 0.15s ease 0s;
         max-width: fit-content;
 
-        @media (any-hover: hover) {
-            &:hover {
-                background-color: rgba($color: #fff, $alpha: 0.1);
+        &:disabled {
+            opacity: .5;
+            cursor: default;
+        }
+
+        &:not(:disabled) {
+            @media (any-hover: hover) {
+                &:hover {
+                    background-color: rgba($color: #fff, $alpha: 0.1);
+                }
             }
         }
     }

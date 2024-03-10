@@ -11,7 +11,7 @@ export default function HeaderNav() {
                 </HeaderNavItem>
                 <HeaderNavItem to={"/contacts"}>Контакты</HeaderNavItem>
                 <HeaderNavItem to={"/rooms"}>Номера</HeaderNavItem>
-                <HeaderNavItem to={""}>Виртуальная экскурсия</HeaderNavItem>
+                <HeaderNavItem to={"/excursion"}>Виртуальная экскурсия</HeaderNavItem>
 
                 {store.isAuth ? (
                     <HeaderNavItem to={"/me"}>Аккаунт</HeaderNavItem>

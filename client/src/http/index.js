@@ -30,7 +30,7 @@ $api.interceptors.response.use(
                 console.log("не авторизован");
             }
         }
-        throw Error;
+        throw error;
     }
 );
 export default $api;

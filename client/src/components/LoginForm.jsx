@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { Context } from "../main";
 import { observer } from "mobx-react-lite";
 function LoginForm() {
+    const [error, setError] = useState(null);
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { store } = useContext(Context);
-
     return (
         <form action="" className="auth-form">
             <div className="auth-form__box">
@@ -34,6 +34,7 @@ function LoginForm() {
                     placeholder="Введите пароль"
                 />
             </div>
+            {store.error ? <p style={{ color: "red" }}>{store.error}</p> : null}
             <div className="auth-form__bottom">
                 <ButtonTransparent
                     onClick={() => {

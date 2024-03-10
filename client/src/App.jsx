@@ -10,6 +10,7 @@ import { MainPage } from "./pages/MainPage";
 import { Context } from "./main";
 import { observer } from "mobx-react-lite";
 import { AccountPage } from "./pages/AccountPage";
+import { ExcursionPage } from "./pages/ExcursionPage";
 
 function App() {
     const { store } = useContext(Context);
@@ -28,6 +29,7 @@ function App() {
                 <Route path="/rooms" element={<Rooms />} />
                 <Route path="/me" element={<AccountPage />} />
                 <Route path="/" element={<MainPage />} />
+                <Route path="/excursion" element={<ExcursionPage />} />
             </Route>
         </Routes>
     );

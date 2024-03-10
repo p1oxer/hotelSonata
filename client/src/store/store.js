@@ -2,9 +2,12 @@ import { makeAutoObservable } from "mobx";
 import AuthService from "../services/AuthService";
 import axios from "axios";
 import { API_URL } from "../http";
+import { getResponseError } from "../utils/errorUtils";
 export default class Store {
     user = {};
     isAuth = false;
+    error = "";
+
     constructor() {
         makeAutoObservable(this);
     }
@@ -12,20 +15,23 @@ export default class Store {
     setAuth(bool) {
         this.isAuth = bool;
     }
-
+    setError(error) {
+        this.error = error;
+    }
     setUser(user) {
         this.user = user;
     }
 
-    async login(email, password, phone, fullName) {
+    async login(email, password) {
         try {
-            const response = await AuthService.login(email, password, phone, fullName);
+            const response = await AuthService.login(email, password);
             localStorage.setItem("token", response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
             location.assign("/");
-        } catch (e) {
-            console.log(e.response.data.message);
+        } catch (error) {
+            const responseError = getResponseError(error);
+            this.setError(responseError);
         }
     }
     async registration(email, password, phone, fullName) {
@@ -40,8 +46,9 @@ export default class Store {
             this.setAuth(true);
             this.setUser(response.data.user);
             location.assign("/");
-        } catch (e) {
-            console.log(e.response.data.message);
+        } catch (error) {
+            const responseError = getResponseError(error);
+            this.setError(responseError);
         }
     }
     async logout() {
