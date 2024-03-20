@@ -8,9 +8,11 @@ export function AccountPage() {
         <section className="account page">
             <div className="account__container">
                 <div className="account__body body-account">
-                    <p className="body-account__info">{store.user.fullName}</p>
-                    <p className="body-account__info">{store.user.email}</p>
-                    <p className="body-account__info">{store.user.phone}</p>
+                    <ul className="body-account__list">
+                        <li className="body-account__info">{store.user.fullName}</li>
+                        <li className="body-account__info">{store.user.email}</li>
+                        <li className="body-account__info">{store.user.phone}</li>
+                    </ul>
                 </div>
                 <ButtonTransparent onClick={() => store.logout()}>
                     Выйти

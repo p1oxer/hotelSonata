@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { DateInput } from "./UI/DateInput";
 import { ButtonTransparent } from "./UI/ButtonTransparent";
+import { Context } from "../main";
+import Modal from "../store/modal"
 export function BookingForm() {
+
     return (
         <form action="" className="booking__form">
             <div className="booking__container">
@@ -19,7 +22,9 @@ export function BookingForm() {
 
                         <DateInput />
                     </div>
-                    <ButtonTransparent>НАЙТИ НОМЕРА</ButtonTransparent>
+                    <ButtonTransparent onClick={() => Modal.setModal(true)}>
+                        НАЙТИ НОМЕРА
+                    </ButtonTransparent>
                 </div>
             </div>
         </form>

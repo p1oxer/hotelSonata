@@ -11,7 +11,15 @@ export default function HeaderNav() {
                 </HeaderNavItem>
                 <HeaderNavItem to={"/contacts"}>Контакты</HeaderNavItem>
                 <HeaderNavItem to={"/rooms"}>Номера</HeaderNavItem>
-                <HeaderNavItem to={"/excursion"}>Виртуальная экскурсия</HeaderNavItem>
+                <li className={"nav-header__item"}>
+                    <a
+                        target="_blank"
+                        href="https://p1oxer.github.io/virtualExcursion/"
+                        className="nav-header__link"
+                    >
+                        Виртуальная экскурсия
+                    </a>
+                </li>
 
                 {store.isAuth ? (
                     <HeaderNavItem to={"/me"}>Аккаунт</HeaderNavItem>

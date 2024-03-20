@@ -7,7 +7,6 @@ export default class Store {
     user = {};
     isAuth = false;
     error = "";
-
     constructor() {
         makeAutoObservable(this);
     }

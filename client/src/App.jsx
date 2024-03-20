@@ -10,8 +10,7 @@ import { MainPage } from "./pages/MainPage";
 import { Context } from "./main";
 import { observer } from "mobx-react-lite";
 import { AccountPage } from "./pages/AccountPage";
-import { ExcursionPage } from "./pages/ExcursionPage";
-
+import ModalBooking from "./components/ModalBooking/ModalBooking";
 function App() {
     const { store } = useContext(Context);
     useEffect(() => {
@@ -21,17 +20,19 @@ function App() {
     }, []);
     console.log(store.user.fullName);
     return (
-        <Routes>
-            <Route path="/" element={<Layout />}>
-                <Route path="/contacts" element={<ContactsPage />} />
-                <Route path="/auth/login" element={<LoginPage />} />
-                <Route path="/auth/register" element={<RegisterPage />} />
-                <Route path="/rooms" element={<Rooms />} />
-                <Route path="/me" element={<AccountPage />} />
-                <Route path="/" element={<MainPage />} />
-                <Route path="/excursion" element={<ExcursionPage />} />
-            </Route>
-        </Routes>
+        <>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route path="/contacts" element={<ContactsPage />} />
+                    <Route path="/auth/login" element={<LoginPage />} />
+                    <Route path="/auth/register" element={<RegisterPage />} />
+                    <Route path="/rooms" element={<Rooms />} />
+                    <Route path="/me" element={<AccountPage />} />
+                    <Route path="/" element={<MainPage />} />
+                </Route>
+            </Routes>
+            <ModalBooking />
+        </>
     );
 }
 

@@ -15,7 +15,10 @@ class UserService {
                 `Пользователь с таким почтовым адресом уже существует`
             );
         }
-
+        const phoneCheck = await UserModel.findOne({ phone });
+        if(phoneCheck){
+            throw ApiError.BadRequest("Номер телефона уже используется другим пользователем")
+        }
         const activationLink = uuid.v4();
         const hashPassword = await bcrypt.hash(password, 3);
 
