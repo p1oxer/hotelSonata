@@ -1,7 +1,9 @@
 .account {
 
     // .account__container
-    &__container {}
+    &__container {
+        padding-bottom: rem(50);
+    }
 
     // .account__body
     &__body {
@@ -19,6 +21,6 @@
 
     // .body-account__info
     &__info {
-        font-size: rem(25);
+        @include adaptiveValue("font-size", 25, 15);
     }
 }

@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BookingForm } from "../components/BookingForm";
 import { RoomItem } from "../components/RoomItem";
+import Modal from "../store/modal";
+import axios from "axios";
 export function Rooms() {
+    const [rooms, setRooms] = useState([]);
+
+    useEffect(() => {
+        axios
+            .get("http://localhost:5000/api/rooms")
+            .then((rooms) => {
+                setRooms(rooms.data);
+            })
+            .catch((err) => console.log(err));
+    }, []);
+
     return (
         <section className="rooms page">
             <BookingForm />
             <div className="rooms__body">
-                <RoomItem roomName={"Люкс"} roomPrice={"9999₽"} />
-                <RoomItem roomName={"Обычный"} roomPrice={"3999₽"} />
-                <RoomItem roomName={"Семейный"} roomPrice={"7999₽"} />
-                <RoomItem roomName={"Какой-то"} roomPrice={"3999₽"} />
-                <RoomItem roomName={"Мега-люкс"} roomPrice={"11999₽"} />
+                {rooms.map((room) => {
+                    return (
+                        <RoomItem
+                            key={room.id}
+                            roomName={room.name}
+                            roomDescription={room.description}
+                            roomPrice={`${room.price}`}
+                            onClick={() => Modal.setModal(true)}
+                            img={room.img}
+                        />
+                    );
+                })}
             </div>
         </section>
     );

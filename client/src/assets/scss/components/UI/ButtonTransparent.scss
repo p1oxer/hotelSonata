@@ -2,9 +2,17 @@
     &.button-transparent {
         border: 1px solid #fff;
         padding: 10px 20px;
-        font-size: 14px;
         transition: all 0.15s ease 0s;
         max-width: fit-content;
+        @include adaptiveValue("font-size", 14, 10);
+
+        @media (max-width:$mobile) {
+            font-size: rem(12);
+        }
+
+        @media (max-width:$mobileSmall) {
+            padding: 10px;
+        }
 
         &:disabled {
             opacity: .5;

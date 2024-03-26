@@ -7,18 +7,18 @@
         text-align: center;
         justify-content: center;
         align-items: center;
-        gap: 50px;
+        @include adaptiveValue("gap", 50, 25);
     }
 
     // .intro__title
     &__title {
-        font-size: rem(124);
+        @include adaptiveValue("font-size", 124, 60);
         font-family: "Ojuju";
     }
 
     // .intro__subtitle
     &__subtitle {
         font-family: "Montserrat";
-        font-size: rem(25);
+        @include adaptiveValue("font-size", 25, 16);
     }
 }

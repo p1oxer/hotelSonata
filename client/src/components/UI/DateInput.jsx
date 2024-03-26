@@ -6,12 +6,11 @@ import { registerLocale, setDefaultLocale } from "react-datepicker";
 import { ru } from "date-fns/locale/ru";
 registerLocale("ru", ru);
 setDefaultLocale("ru");
-export function DateInput() {
+export function DateInput({ modificator }) {
     const [startDate, setStartDate] = useState(new Date());
-
     return (
         <DatePicker
-            className="dateInput"
+            className={`dateInput ${modificator}`}
             startDate={startDate}
             minDate={new Date()}
             selected={startDate}

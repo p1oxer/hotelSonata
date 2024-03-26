@@ -21,7 +21,6 @@ app.use(errorMidleware);
 
 const { connectToDb, getDb } = require("./db");
 let db;
-
 connectToDb((err) => {
     if (!err) {
         async function start() {

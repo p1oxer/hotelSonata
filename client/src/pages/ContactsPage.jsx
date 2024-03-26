@@ -41,6 +41,7 @@ export function ContactsPage() {
                     </div>
                     <div className="contacts__map">
                         <iframe
+                            className="map"
                             src="https://yandex.com/map-widget/v1/?um=constructor%3A95a5d1c9e86def5724b6d61a304e1c3c966793022076afca82126c887c343aba&amp;source=constructor"
                             width="800"
                             height="500"

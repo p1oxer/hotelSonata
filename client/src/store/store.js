@@ -7,10 +7,14 @@ export default class Store {
     user = {};
     isAuth = false;
     error = "";
+    reservations = [];
+
     constructor() {
         makeAutoObservable(this);
     }
-
+    setReservations(reservation) {
+        this.reservations = reservation;
+    }
     setAuth(bool) {
         this.isAuth = bool;
     }
@@ -20,7 +24,7 @@ export default class Store {
     setUser(user) {
         this.user = user;
     }
-
+    
     async login(email, password) {
         try {
             const response = await AuthService.login(email, password);
@@ -69,7 +73,6 @@ export default class Store {
             localStorage.setItem("token", response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
-            console.log(response);
         } catch (e) {
             console.log(e.response.data.message);
         }

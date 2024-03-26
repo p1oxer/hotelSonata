@@ -11,6 +11,7 @@ import { Context } from "./main";
 import { observer } from "mobx-react-lite";
 import { AccountPage } from "./pages/AccountPage";
 import ModalBooking from "./components/ModalBooking/ModalBooking";
+
 function App() {
     const { store } = useContext(Context);
     useEffect(() => {

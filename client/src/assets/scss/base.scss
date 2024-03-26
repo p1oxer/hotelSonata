@@ -42,6 +42,7 @@ $tablet: em(991.98); // Планшеты, некоторые телефоны в
 $mobile: em(767.98); // Телефоны L
 $mobileSmall: em(479.98); // Телефоны S
 
+
 // Тип адаптива:
 // 1 = отзывчивость (у контейнера нет брейкпоинтов),
 // 2 = по брейк-поинтам (контейнер меняет свою ширину по брейк-поинтам)
@@ -96,10 +97,15 @@ body {
 			max-width: rem($maxWidthContainer);
 			box-sizing: content-box;
 			margin: 0 auto;
+
 		}
 
 		@if ($containerPadding>0) {
 			padding: 0 rem(math.div($containerPadding, 2));
+
+			@media (max-width:$tablet) {
+				padding: 0 rem(15);
+			}
 		}
 	}
 }

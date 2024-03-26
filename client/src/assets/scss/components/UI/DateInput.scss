@@ -1,17 +1,24 @@
 .dateInput {
-    padding: 10px;
-    outline: none;
-    font-size: rem(16);
+    
+}
+
+.booking__date {
+    @include adaptiveValue("font-size", 16, 12, 1920, 767);
 }
 
 .date-input-container {
     z-index: 10;
 
+
     label {
         display: block;
         color: #c7c7c7;
-        margin-bottom: rem(10);
-        font-size: rem(14);
+        @include adaptiveValue("font-size", 14, 10, 1920, 767);
+        margin-bottom: rem(3);
+
+        @media (max-width:$mobile) {
+            font-size: rem(10);
+        }
     }
 
 }

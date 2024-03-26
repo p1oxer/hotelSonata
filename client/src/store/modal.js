@@ -8,7 +8,6 @@ class Modal {
 
     setModal(modalActive) {
         this.modalActive = modalActive;
-        console.log(this.modalActive);
     }
 }
 

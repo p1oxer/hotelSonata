@@ -8,7 +8,12 @@
         flex-direction: row;
         justify-content: space-between;
         padding: 20px 0;
-        font-size: rem(16);
+        @include adaptiveValue("font-size", 16, 12);
+
+        @media (max-width:$mobileSmall) {
+            flex-direction: column;
+            gap: rem(10);
+        }
     }
 
     // .footer__rights
